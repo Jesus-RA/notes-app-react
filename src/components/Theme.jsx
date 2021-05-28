@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 const Theme = () => {
 
-    const [darkMode, setDarkMode] = useState(true)
+    const [darkMode, setDarkMode] = useState(false)
 
     const setTheme = () => {
 
@@ -21,6 +21,9 @@ const Theme = () => {
 
     useEffect( () => {
    
+        if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+            setDarkMode(true)
+        }
         setTheme()
 
     }, [darkMode])
