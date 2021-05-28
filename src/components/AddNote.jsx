@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useRef, useEffect, useContext } from 'react'
 import { NotesContext } from '../context/NotesContext'
 import EditNoteContent from './EditNoteContent'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2/src/sweetalert2.js'
 
 const AddNote = () => {
 

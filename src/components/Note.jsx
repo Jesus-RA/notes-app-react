@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2/src/sweetalert2.js'
 import ReactMarkdown from 'react-markdown'
 import EditNote from './EditNote'
 
