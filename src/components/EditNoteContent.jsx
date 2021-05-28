@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm'
 
 const EditNoteContent = ({ id = 0, content, setContent }) => {
 
@@ -25,7 +26,7 @@ const EditNoteContent = ({ id = 0, content, setContent }) => {
             </div>
             {
                 markdownPreview
-                    ? <ReactMarkdown>{ content }</ReactMarkdown>
+                    ? <ReactMarkdown remarkPlugins={[gfm]}>{ content }</ReactMarkdown>
                     : <textarea
                         name="content"
                         id={`editNoteContent${id}`}

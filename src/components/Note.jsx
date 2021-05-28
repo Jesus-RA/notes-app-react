@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import '@sweetalert2/theme-dark'
 import Swal from 'sweetalert2/src/sweetalert2.js'
 import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm'
 import EditNote from './EditNote'
 
 import { NotesContext } from '../context/NotesContext'
@@ -73,9 +74,7 @@ const Note = ({ note }) => {
     }
 
     return (
-
         <div className="card shadow border-0">
-
             <div className="card-header">
                 <div className="row">
                     <span className="col-8 col-md-7 col-lg-9">
@@ -101,7 +100,7 @@ const Note = ({ note }) => {
 
                 <h3 className="text-center">Title: { title }</h3>
                 
-                <ReactMarkdown>
+                <ReactMarkdown remarkPlugins={ [gfm] }>
                     { content }
                 </ReactMarkdown>
 
