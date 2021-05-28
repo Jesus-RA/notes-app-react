@@ -10,7 +10,7 @@ import dayjs from 'dayjs'
 const Note = ({ note }) => {
 
     const { id, title, content, created_at } = note
-    const { notes, setNotesToShow } = useContext(NotesContext)
+    const { notes, setNotes, setNotesToShow } = useContext(NotesContext)
 
     const deleteNote = noteId => {
 
@@ -28,7 +28,12 @@ const Note = ({ note }) => {
                 throw response.json()
             
         })
-        .then(() => setNotesToShow( notes.filter( note => note.id !== noteId ) ))
+        .then(() => {
+            const notesFiltered = notes.filter( note => note.id !== noteId )
+
+            setNotesToShow( notesFiltered )
+            setNotes( notesFiltered )
+        })
         .catch(async errorPromise => {
             const error = await errorPromise
             Swal.fire({

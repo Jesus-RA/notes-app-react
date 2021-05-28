@@ -14,7 +14,7 @@ const NotesApp = () => {
     const { notes, loading, error, errorMessage } = useContext(NotesContext)
 
     return (
-        <div className={`container py-5 ${ loading || error ? 'vh-100' : ''}`}>
+        <div className={`container py-5 ${ loading || error || !notes.length ? 'vh-100' : ''}`}>
             <h1 className="text-center app-title">Manage your notes and write them using Markdown</h1>
             <Theme />
             <div className="row">
@@ -22,7 +22,7 @@ const NotesApp = () => {
                 <SearchBar />
             </div>
 
-            <div className={`row mt-4 ${loading || error ? 'h-75 align-items-center justify-content-center' : ''}`}>
+            <div className={`row mt-4 ${loading || error || !notes.length ? 'h-50 align-items-center justify-content-center' : ''}`}>
 
                 { !loading && error && <Alert message={ errorMessage } alert="error" /> }
                 <Loader loading={ loading } />

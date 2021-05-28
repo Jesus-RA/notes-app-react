@@ -10,7 +10,7 @@ const AddNote = () => {
     const [content, setContent] = useState('')
     const focusRef = useRef(null)
 
-    const { notes, setNotesToShow } = useContext(NotesContext)
+    const { notes, setNotes, setNotesToShow } = useContext(NotesContext)
 
     useEffect( () => focusRef.current.focus() , [])
 
@@ -40,6 +40,7 @@ const AddNote = () => {
                     selfLink: data.data.links.self
                 }
 
+                setNotes([ ...notes, newNote ])
                 setNotesToShow([ ...notes, newNote ])
 
                 setTitle('')

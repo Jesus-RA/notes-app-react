@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { NotesContext } from '../context/NotesContext'
+import '@sweetalert2/theme-dark'
+import Swal from 'sweetalert2/src/sweetalert2.js'
 
 const SearchBar = () => {
 
@@ -9,9 +11,21 @@ const SearchBar = () => {
 
         const filter = e.target.value
 
+        const resutls = notesToShow.filter(note => note.title.toLowerCase().includes(filter.toLowerCase()) )
+
+        if(!resutls.length)
+            Swal.fire({
+                title: 'No results founded',
+                icon: 'info',
+                toast: true,
+                timer: 3000,
+                position: 'top-end',
+                showConfirmButton: false,
+            })
+
         filter.length === 0
             ? setNotesToShow(notes)
-            : setNotesToShow(notesToShow.filter(note => note.title.toLowerCase().includes(filter.toLowerCase()) ))
+            : setNotesToShow(resutls)
 
     }
 
