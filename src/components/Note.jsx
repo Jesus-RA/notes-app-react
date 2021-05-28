@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import '@sweetalert2/theme-dark'
 import Swal from 'sweetalert2/src/sweetalert2.js'
 import ReactMarkdown from 'react-markdown'
 import EditNote from './EditNote'
@@ -34,7 +35,8 @@ const Note = ({ note }) => {
                 title: error.errors.detail,
                 icon: 'error',
                 toast: true,
-                position: 'top-end'
+                position: 'top-end',
+                showConfirmButton: false
             })
         })
     }

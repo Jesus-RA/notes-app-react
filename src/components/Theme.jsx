@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react'
 
 const Theme = () => {
 
-    const [darkMode, setDarkMode] = useState(false)
+    let prefersDarkMode = false
 
+    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+        prefersDarkMode = true
+    }
+
+    const [darkMode, setDarkMode] = useState(prefersDarkMode)
+    
     const setTheme = () => {
 
         let styles = document.querySelector(':root').style
@@ -21,9 +27,6 @@ const Theme = () => {
 
     useEffect( () => {
    
-        if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-            setDarkMode(true)
-        }
         setTheme()
 
     }, [darkMode])

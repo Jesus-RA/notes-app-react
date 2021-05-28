@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useRef, useEffect, useContext } from 'react'
 import { NotesContext } from '../context/NotesContext'
 import EditNoteContent from './EditNoteContent'
+import '@sweetalert2/theme-dark'
 import Swal from 'sweetalert2/src/sweetalert2.js'
 
 const EditNote = ({ note }) => {
