@@ -1,10 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
-import Alert from '../components/Alert'
 
 const fetchNotes = async (setError, setErrorMessage) => {
 
-    const response = await fetch("http://127.0.0.1:8000/api/v1/notes", {
+    const response = await fetch("https://notes-api-app.herokuapp.com/api/v1/notes", {
         headers: {"Content-Type": "application/vnd.api+json"}
     })
 
@@ -74,7 +73,7 @@ export function NotesContextComponent({ children }) {
     }, [])
 
     return (
-        <NotesContext.Provider value={ { notes, setNotes, notesToShow, setNotesToShow, error, errorMessage } }>
+        <NotesContext.Provider value={ { notes, setNotes, notesToShow, setNotesToShow, loading, error, errorMessage } }>
             { children }
         </NotesContext.Provider>
     )

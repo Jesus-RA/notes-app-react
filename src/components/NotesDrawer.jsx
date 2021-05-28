@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext, useEffect } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { NotesContext } from '../context/NotesContext'
 
 import Note from './Note'

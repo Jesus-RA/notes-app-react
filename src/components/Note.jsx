@@ -8,7 +8,7 @@ import dayjs from 'dayjs'
 
 const Note = ({ note }) => {
 
-    const { id, title, content, created_at, selfLink } = note
+    const { id, title, content, created_at } = note
     const { notes, setNotesToShow } = useContext(NotesContext)
 
     const deleteNote = noteId => {
@@ -42,8 +42,7 @@ const Note = ({ note }) => {
     const onDelete = () => {
 
         Swal.fire({
-            title: 'Are you sure to delete this note',
-            text: 'Testing Sweet Alert 2',
+            title: 'Are you sure you want to delete this note?',
             icon: 'warning',
             iconColor: '343A40',
             showCancelButton: true,

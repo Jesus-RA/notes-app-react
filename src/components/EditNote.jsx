@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 
 const EditNote = ({ note }) => {
 
-    const { id, title, content } = note
+    const { id, title, content, selfLink } = note
     const [titleEdited, setTitleEdited] = useState(title)
     const [contentEdited, setContentEdited] = useState(content)
     const focusRef = useRef(null)
@@ -28,7 +28,7 @@ const EditNote = ({ note }) => {
             }
         }
 
-        fetch(`http://127.0.0.1:8000/api/v1/notes/${id}`, {
+        fetch(selfLink, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/vnd.api+json' },
             body: JSON.stringify(data)

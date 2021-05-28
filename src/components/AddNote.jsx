@@ -25,7 +25,7 @@ const AddNote = () => {
             }
         }
 
-        fetch("http://127.0.0.1:8000/api/v1/notes", {
+        fetch("https://notes-api-app.herokuapp.com/api/v1/notes", {
             method: 'POST',
             headers: { 'Content-Type': 'application/vnd.api+json' },
             body: JSON.stringify(noteData)
