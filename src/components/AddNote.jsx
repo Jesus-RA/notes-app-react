@@ -50,7 +50,7 @@ const AddNote = () => {
                     title: 'Note added',
                     icon: 'success',
                     toast: true,
-                    timer: 5000,
+                    timer: 3000,
                     position: 'top-end',
                     showConfirmButton: false
                 })

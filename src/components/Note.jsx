@@ -41,6 +41,7 @@ const Note = ({ note }) => {
                 title: error.errors.detail,
                 icon: 'error',
                 toast: true,
+                timer: 3000,
                 position: 'top-end',
                 showConfirmButton: false
             })
